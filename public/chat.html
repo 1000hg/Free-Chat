@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Socket.IO Chat Example</title>
+	<link rel="stylesheet" href="chat.css">
+</head>
+
+<body>
+
+	<!--<div class="container">
+
+		<div class="sidebar">
+			asdafsf
+		</div>
+		<div class="pages">
+			<div class="chat page">
+				<div class="chatArea">
+					<ul class="messages">
+						<li class="log">he</li>
+						<li class="log">he</li>
+						<li class="log">he</li>
+						<li class="log">he</li>
+						<li class="log">he</li>
+						<li class="message">
+							<span class="username">hhh</span>
+							<span class="messageBody">메시지</span>
+						</li>
+					</ul>
+				</div>
+				<input class="inputMessage" placeholder="Type here..." />
+			</div>
+		</div>
+
+	</div>-->
+
+	<div class="container">
+		<div class="head">
+			<span>자유 채팅방</span>
+		</div>
+		<div class="chatPage">
+			<div class="chatArea">
+				<ul class="message">
+					<li class="info">he님이 입장하셨습니다.</li>
+					<li class="receive message">
+						<span class="date">[10:03]</span>
+						<span class="username">hhh</span>
+						<span class="messageBody">ㅎㅇㅎㅇ</span>
+					</li>
+					
+					<li class="send message">
+						<span class="messageBody">ㅎㅇㅎㅇ</span>
+						<span class="date">[10:03]</span>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+		<div class="inputMessage">
+			<input type="text" class="inputMessage" placeholder="대화입력">
+			<button>전송</button>
+		</div>
+
+	</div>
+
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/main.js"></script>
+</body>
+
+</html>
