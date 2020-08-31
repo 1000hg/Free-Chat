@@ -96,20 +96,6 @@ const receiveMessage = (data) => {
 
 
 
-/*const sendMessage = () => {
-	var message = inputMessage.value();
-	message = cleanInput(message);
-	if (message && connected) {
-		$inputMessage.val('');
-		addChatMessage({
-			username: username,
-			message: message
-		});
-		
-		socket.emit('new message', message);
-	}
-}*/
-
 
 
 inputMessage.addEventListener('keypress', function (e) {
