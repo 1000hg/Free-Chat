@@ -37,7 +37,7 @@ html{
 	overflow-y: scroll;
 }
 
-.message{
+.messages{
 	list-style: none;
 }
 
@@ -47,18 +47,22 @@ html{
 	margin: 20px;
 }
 
+.message > span{
+	margin: 30px 10px;
+}
+
 .send{
-	margin-left: 600px;
+	margin-left: 500px;
 }
 
 
-.inputMessage{
+.sendMessage{
 	display: flex;
 	flex-direction: column;
 	margin: 30px 0;
 }
 
-.inputMessage input{
+.sendMessage input{
   outline: 0;
   border: 1px solid #dfdfdf;
   width: 800px;
@@ -68,7 +72,7 @@ html{
   font-size: 14px;
 }
 
-.inputMessage button{
+.sendMessage button{
   text-transform: uppercase;
   outline: 0;
   background: #1ddb61;
