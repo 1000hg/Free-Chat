@@ -1,9 +1,16 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
+
+var app = express();
+
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+
+
+/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.render('test');
 });
 
 module.exports = router;
