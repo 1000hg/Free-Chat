@@ -18,6 +18,24 @@ var server = app.listen(port, () => {
 })
 var io = require('socket.io')(server);
 
+/*var mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : 'pairy1@3tail',
+  database : 'test'
+});
+
+connection.connect();
+connection.query('SELECT 1 + 1 AS solution', 
+function (error, results, fields) {
+  if (error) throw error;
+  console.log('The solution is: ', results[0].solution);
+});
+
+connection.end();*/
+
+
 
 var userCount = 1;
 let rooms = [];
@@ -66,7 +84,7 @@ io.on('connection', (socket) => {
 		rooms.push(room)
 	})
 
-	function find(id) {
+	function findRoom(id) {
 		for (let i in rooms) {
 			if (id == rooms[i].id) {
 				return rooms[i]
@@ -76,7 +94,7 @@ io.on('connection', (socket) => {
 	}
 
 	socket.on('join', function (data) {
-		var room = find(data)
+		var room = findRoom(data)
 		if (room == null) return
 		socket.room = room
 		room.user.push(socket)
