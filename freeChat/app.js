@@ -18,22 +18,35 @@ var server = app.listen(port, () => {
 })
 var io = require('socket.io')(server);
 
-/*var mysql      = require('mysql');
+var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'pairy1@3tail',
-  database : 'test'
+	host: 'localhost',
+	port: '3308',
+	user: 'root',
+	password: 'pairy1@3tail',
+	database: 'test1'
 });
 
-connection.connect();
-connection.query('SELECT 1 + 1 AS solution', 
-function (error, results, fields) {
-  if (error) throw error;
-  console.log('The solution is: ', results[0].solution);
+
+connection.connect(function (err) {
+	if (err) throw err;
+	console.log("DB Connected");
 });
 
-connection.end();*/
+
+/*var sql = "INSERT INTO user (name, id, password) VALUES ('김윤수', 'a123123', 'b123123')";
+connection.query(sql, function (err, result) {
+  if (err) throw err;
+  console.log("contents inserted");
+});*/
+
+
+connection.query("SELECT * FROM user", function (err, result, fields) {
+	if (err) throw err;
+	console.log(result);
+});
+
+connection.end();
 
 
 
@@ -58,10 +71,8 @@ io.on('connection', (socket) => {
 
 
 	socket.on('addUser', (username) => {
-		userCount += 1;
+		++userCount;
 		socket.username = username;
-
-		//console.log(socket);
 
 		socket.emit('checkCount', {
 			userCount: userCount
@@ -100,22 +111,46 @@ io.on('connection', (socket) => {
 		room.user.push(socket)
 		room.user.forEach(function (x) {
 			x.emit('update', {
-				msg: socket.name + '님이 접속하였습니다.'
+				name: socket.username + '님이 접속하였습니다.',
+				userCount: userCount + '명 접속중'
 			})
 		})
 	})
 
 	socket.on('sendMessage', (data) => {
 		socket.broadcast.emit('receiveMessage', {
-			username: data.username,
+			name: data.name,
 			message: data.message
 		});
 	});
 
 	socket.on('disconnect', () => {
-		userCount -= 1;
-		console.log("l :  " + userCount);
-		console.log("leave");
+
+		if (socket.room) {
+			userCount -= 1;
+			let user = socket.room.user
+
+			if (user.length == 0) {
+				rooms.pop(rooms.findIndex(function (x) {
+					return x.roomName == socket.roomName
+				}))
+			} else {
+				user.forEach(function (x) {
+					x.emit('update', {
+						name: socket.username + '님이 나가셨습니다.',
+						userCount: userCount + '명 접속중'
+					})
+				})
+				
+				let num = user.findIndex(function (x) {
+					return x.username == socket.username
+				})
+
+				user.pop(num)
+			}
+		}
+
+
 	});
 
 

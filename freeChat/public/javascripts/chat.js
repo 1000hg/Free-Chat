@@ -77,9 +77,10 @@ const sendMessage = (data) => {
 }
 
 const receiveMessage = (data) => {
+
 	var nameSpan = document.createElement("span");
 	nameSpan.className = 'username';
-	nameSpan.innerHTML = data.username;
+	nameSpan.innerHTML = data.name;
 	
 	var messageSpan = document.createElement("span");
 	messageSpan.className = 'messageBody';
