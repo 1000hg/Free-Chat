@@ -1,0 +1,60 @@
+.search span {
+	background: #dfdfdf;
+	padding: 15px;
+	margin: 0;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+
+}
+
+.search input {
+	outline: 0;
+	border: 1px solid #dfdfdf;
+	width: 800px;
+	margin: 0 0 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+
+.search button {
+	outline: 0;
+	background: #1ddb61;
+	width: 70px;
+	border: 0;
+	padding: 15px;
+	color: #FFFFFF;
+	font-size: 14px;
+	transition: all 0.3 ease;
+	cursor: pointer;
+	font-size: 15px;
+	border-radius: 5px;
+}
+
+#addRoom {
+	outline: 0;
+	background: black;
+	width: 200px;
+	border: 0;
+	padding: 15px;
+	color: #FFFFFF;
+	font-size: 14px;
+	transition: all 0.3 ease;
+	cursor: pointer;
+	font-size: 15px;
+	border-radius: 5px;
+}
+
+#Room-join-btn {
+	margin: 5px 0;
+	outline: 0;
+	background: gray;
+	width: 500px;
+	border: 0;
+	padding: 15px;
+	color: #FFFFFF;
+	font-size: 14px;
+	transition: all 0.3 ease;
+	cursor: pointer;
+	font-size: 15px;
+}

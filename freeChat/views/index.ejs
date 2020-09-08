@@ -4,10 +4,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title></title>
+	<link rel="stylesheet" href="../stylesheets/index.css">
 </head>
 
 <body>
-	<input type="button" id="addRoom" value="방 추가" onclick="location.pathname = '/users'">
+	<h1>채팅방 리스트</h1>
+	
+	<form action="#" class="search">
+		<span>방 제목</span>
+		<input type="text">
+		<button>검색</button>
+	</form>
+	
+	<input type="button" id="addRoom" value="AddRoom" onclick="location.pathname = '/users'">
 
 	<div id="room" class="Room">
 

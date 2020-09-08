@@ -50,7 +50,7 @@ connection.end();
 
 
 
-var userCount = 1;
+var userCount = 0;
 let rooms = [];
 var id = 0;
 
@@ -63,7 +63,7 @@ io.on('connection', (socket) => {
 		socket.emit('rooms', rooms.map(function (x) {
 			return {
 				name: x.roomName,
-				uname: x.user[0].username,
+				username: x.user[0].username,
 				id: x.id
 			}
 		}))
